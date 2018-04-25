@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RayShooter : MonoBehaviour {
 
     private Camera _camera;
@@ -14,7 +15,7 @@ public class RayShooter : MonoBehaviour {
         Cursor.visible = false;                    // Make it not visible
 
 	}
-
+    
 
     void OnGUI()
     {
@@ -35,7 +36,22 @@ public class RayShooter : MonoBehaviour {
             if(Physics.Raycast(ray, out hit))                                                   // Check if and get what the ray hit 
             {
                 Debug.Log("Hit " + hit.point);
-                StartCoroutine(SphereIndicator(hit.point));                                     // call coroutine
+                
+                GameObject hitObject = hit.transform.gameObject; // Retrieve the object the ray hit
+                ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
+
+                if (target != null) // If it is a enemy then do the enemy reaction function
+                {
+                    Debug.Log("Target Hit");
+                    target.ReactToHit();
+                }
+                else                // else just show where you raycasted
+                {
+                    StartCoroutine(SphereIndicator(hit.point));                                     // call coroutine
+
+                }
+
+
             }
         }
 

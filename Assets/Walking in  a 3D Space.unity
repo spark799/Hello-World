@@ -1350,6 +1350,7 @@ GameObject:
   - component: {fileID: 1617754167}
   - component: {fileID: 1617754166}
   - component: {fileID: 1617754170}
+  - component: {fileID: 1617754171}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1417,7 +1418,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1617754165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.19, y: 1, z: -2.254}
+  m_LocalPosition: {x: 1.16, y: 1, z: -11.08}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1434,6 +1435,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abded20f0dbb4d142ab40f6f0a23f3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1617754171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617754165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b0105c876dd0641bfe1024b71ebd9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  obstacleRange: 5
+  _alive: 0
 --- !u!1 &1651547133
 GameObject:
   m_ObjectHideFlags: 0

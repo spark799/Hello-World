@@ -8,6 +8,11 @@ public class WanderingAI : MonoBehaviour {
     public float obstacleRange = 5.0f;
     public bool _alive; // To tell if the character is in alive or dead state
 
+
+    [SerializeField]
+    private GameObject fireballPrefab;  // reference to prefab
+    private GameObject _fireball;       // instance of prefab
+
     // Use this for initialization
     void Start () {
         _alive = true; // Initiate character as alive
@@ -24,7 +29,18 @@ public class WanderingAI : MonoBehaviour {
             RaycastHit hit;
             if (Physics.SphereCast(ray, 0.75f, out hit))     // Different than Physics.Raycast, SphereCast will detect how far around the ray with the given radius there is an intersection
             {
-                if (hit.distance < obstacleRange)           // If an obstacle (anything that the ray interescts) is in range of the set distance, then turn around
+                GameObject hitObject = hit.transform.gameObject; ;                                      // Get what was hit by the raycast
+
+                if (hitObject.GetComponent<PlayerCharacter>())                                          // check if it was the player  character
+                {
+                    if (_fireball == null)
+                    {
+                        _fireball = Instantiate(fireballPrefab) as GameObject;                          // spawn the prefab
+                        _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);// and spawn in infront of enemy
+                        _fireball.transform.rotation = transform.rotation;                              // rotate it to the same direction as enemy
+                    }
+                }
+                else if (hit.distance < obstacleRange)           // If an obstacle (anything that the ray interescts) is in range of the set distance, then turn around
                 {
                     float angle = Random.Range(-110, 110); // Create a random angle to turn the character
                     transform.Rotate(0, angle, 0);         // Rotate the character that angle

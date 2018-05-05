@@ -45,6 +45,7 @@ public class RayShooter1 : MonoBehaviour {
                 {
                     Debug.Log("Target Hit");
                     target.ReactToHit();
+                    Messenger.Broadcast(GameEvent.ENEMY_HIT);
                 }
                 else                // else just show where you raycasted
                 {

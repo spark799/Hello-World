@@ -22,10 +22,13 @@ public class RelativeMovement : MonoBehaviour {
 
     private CharacterController _charController;
 
+    private Animator _animator;
+
     // Use this for initialization
     void Start() {
         _vertSpeed = minFall;
         _charController = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,6 +56,7 @@ public class RelativeMovement : MonoBehaviour {
             else
             {
                 _vertSpeed = minFall;   // there needs to be a downward force to go up adn down terrain for physics, thats why not set to 0
+                _animator.SetBool("Jumping", false);
             }
         }
         else
@@ -61,6 +65,11 @@ public class RelativeMovement : MonoBehaviour {
             if (_vertSpeed < terminalVelocity)  //make sure it doesnt exceed this velocity, note its < because downward speed is negative
             {
                 _vertSpeed = terminalVelocity;
+            }
+            if(_contact != null)
+            {
+                _animator.SetBool("Jumping", true);
+
             }
 
             if (_charController.isGrounded)
@@ -82,6 +91,8 @@ public class RelativeMovement : MonoBehaviour {
         float vertInput = Input.GetAxis("Vertical");
         if (horInput != 0 || vertInput != 0)
         {
+            _animator.SetFloat("Speed", movement.sqrMagnitude);
+
             movement.x = horInput * moveSpeed;
             movement.z = vertInput * moveSpeed;
             movement = Vector3.ClampMagnitude(movement, moveSpeed); // limit diagonal movement to teh same speed as along an axis
@@ -94,6 +105,11 @@ public class RelativeMovement : MonoBehaviour {
 
             Quaternion direction = Quaternion.LookRotation(movement); // calculates a quaternion facing in that direction
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);    // smooth rotation and not instant if just assigned it
+        }
+        else
+        {
+            _animator.SetFloat("Speed", 0);
+
         }
 
 

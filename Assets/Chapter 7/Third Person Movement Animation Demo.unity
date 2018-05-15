@@ -219,6 +219,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 213b0b96b96c7864a812af47d3cdd19a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: eaa3b0d13fa47bc4d9b5f33ac79d1a41, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 213b0b96b96c7864a812af47d3cdd19a, type: 3}
   m_IsPrefabParent: 0
@@ -712,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 454376020}
-  rotSpeed: 15
+  rotSpeed: 6
   moveSpeed: 0.3
   jumpSpeed: 3
   gravity: -9.8

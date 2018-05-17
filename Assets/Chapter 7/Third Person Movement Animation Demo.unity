@@ -716,12 +716,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 454376020}
-  rotSpeed: 6
   moveSpeed: 0.3
+  rotSpeed: 6
   jumpSpeed: 3
   gravity: -9.8
   terminalVelocity: -10
   minFall: -1.5
+  pushForce: 3
 --- !u!143 &414983229
 CharacterController:
   m_ObjectHideFlags: 0

@@ -6,10 +6,13 @@ public class DeviceTrigger : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] targets;   // list of gameobjects that you want to activate/ deactivate
-
+    public bool requireKey;
 
     void OnTriggerEnter(Collider other)
     {
+
+        if(requireKey && Managers.Inventory.equippedItem != "key") { return; }
+
         // for each targets do activate function
         foreach(GameObject target in targets)
         {

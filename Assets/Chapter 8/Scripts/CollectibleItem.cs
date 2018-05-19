@@ -10,6 +10,7 @@ public class CollectibleItem : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Item collected: " + itemName);
+        Managers.Inventory.AddItem(itemName);
         Destroy(this.gameObject);
     }
 

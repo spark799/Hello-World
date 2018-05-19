@@ -1607,6 +1607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets:
   - {fileID: 305892045}
+  requireKey: 1
 --- !u!1 &415822084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2545,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 928354500}
+  - component: {fileID: 928354499}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2551,6 +2553,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &928354499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928354498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d890724fd83063f47b8b5b6b3ce9f964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &928354500
 Transform:
   m_ObjectHideFlags: 0
